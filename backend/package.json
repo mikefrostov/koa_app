@@ -1,0 +1,28 @@
+{
+  "name": "koa_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_PATH=. node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node-pg-migrate"
+  },
+  "keywords": [
+    "Test",
+    "Node",
+    "Koa",
+    "PostgreSQL"
+  ],
+  "author": "Elliott Minns <elliott.minns@me.com>",
+  "license": "ISC",
+  "dependencies": {
+    "enforce-node-path": "^1.0.0",
+    "koa": "^2.8.2",
+    "koa-route": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "node-pg-migrate": "^3.23.3",
+    "nodemon": "^1.19.3",
+    "pg": "^7.12.1"
+  }
+}

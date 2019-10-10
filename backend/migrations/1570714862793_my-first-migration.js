@@ -14,7 +14,7 @@ pgm.createTable('users', {
   });
   pgm.createTable('posts', {
     id: 'id',
-    userId: {
+    userid: {
       type: 'integer',
       notNull: true,
       references: '"users"',
@@ -27,7 +27,7 @@ pgm.createTable('users', {
       default: pgm.func('current_timestamp')
     }
   });
-  pgm.createIndex('posts', 'userId');
+  pgm.createIndex('posts', 'userid');
 };
 
 exports.down = (pgm) => {

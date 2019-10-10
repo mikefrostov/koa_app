@@ -9,20 +9,21 @@ router.get('/test', async ctx => {
     .then(c => c.rows[0].result)
 });
 
-
-
 router.get('/query', async ctx => {
   ctx.body = await database.query('SELECT * FROM users')
     .then(c => c.rows[0].name)
 });
+
 router.get('/posts', async ctx => {
   ctx.body = await database.query('SELECT * FROM posts')
     .then(c => c.rows[0].body)
+});
 
-//  console.log('name: %s and id: %d', resultobject.rows[0].name, resultobject.rows[0].id);
-
+router.get('/manyposts', async ctx => {
+   result = await database.query('SELECT * FROM posts').then(c => c.rows); //.then(c => c.rows[0]);
+   ctx.body = result
 });
 
 
-
+//  console.log('name: %s and id: %d', resultobject.rows[0].name, resultobject.rows[0].id);
 module.exports = router

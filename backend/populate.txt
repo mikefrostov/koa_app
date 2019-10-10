@@ -1,5 +1,5 @@
 INSERT INTO users (id, name) VALUES ('1', 'john');
-
+INSERT INTO posts (id, userid, body) VALUES ('2', '1', 'ratamahatta hta mahatta');
 psql -h localhost -p 5432 -U postgres -W
 
 

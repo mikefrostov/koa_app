@@ -20,8 +20,14 @@ router.get('/posts', async ctx => {
 });
 
 router.get('/manyposts', async ctx => {
-   result = await database.query('SELECT * FROM posts').then(c => c.rows); //.then(c => c.rows[0]);
-   ctx.body = result
+    result = await database.query('SELECT * FROM posts').then(c => c.rows); //.then(c => c.rows[0]);
+
+    posts = [];
+	for (var i in result){
+        posts.push(result[i].body);
+	}
+    ctx.status = 200;
+    ctx.body = posts;
 });
 
 

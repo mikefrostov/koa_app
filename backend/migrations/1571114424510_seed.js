@@ -14,7 +14,9 @@ exports.up = (pgm) => {
 	pgm.sql(" INSERT INTO posts (listid, body) VALUES ('1', 'good day, sir');   ");
  pgm.sql ("INSERT INTO lists (name) VALUES ('jessy');");
  pgm.sql ("INSERT INTO lists (name) VALUES ('becky');");
-
+ pgm.sql ("INSERT INTO posts (listid, body) VALUES ('2', 'some post about some important subject'); ");
+ pgm.sql ("INSERT INTO posts (listid, body) VALUES ('2', 'some post about some important subject'); ");
+ pgm.sql ("INSERT INTO posts (listid, body) VALUES ('2', 'some post about some important subject'); ");
 };
 
 exports.down = (pgm) => {

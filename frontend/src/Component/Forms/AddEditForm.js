@@ -14,7 +14,7 @@ class AddEditForm extends React.Component {
   submitFormAdd = e => {
     console.log("this.props.listid : " + this.props.listid)
     e.preventDefault()
-    fetch('http://localhost:3000/posts/' + this.props.listid, {
+    fetch('http://localhost:3002/posts/' + this.props.listid, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -38,7 +38,7 @@ class AddEditForm extends React.Component {
 
   submitFormEdit = e => {
     e.preventDefault()
-    fetch('http://localhost:3000/posts/' + this.props.listid , {
+    fetch('http://localhost:3002/posts/' + this.props.listid , {
       method: 'PUT',
       mode: 'cors',
       cache: 'default',

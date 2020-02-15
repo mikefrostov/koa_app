@@ -18,7 +18,7 @@ export default class Post extends Component {
 
   async loadPosts()
   {
-    const promise = await axios.get("http://localhost:3000/posts/" + this.props.match.params.id);
+    const promise = await axios.get("http://localhost:3002/posts/" + this.props.match.params.id);
     const status = promise.status;
     if(status===200)
     {

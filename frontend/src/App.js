@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     getItems(){
-	    fetch('http://localhost:3000/posts/' + this.props.match.params.id)
+	    fetch('http://localhost:3002/posts/' + this.props.match.params.id)
 		    .then(response => response.json())
 		    .then(items => this.setState({items}))
 		    .catch(err => console.log(err))

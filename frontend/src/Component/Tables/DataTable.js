@@ -8,7 +8,7 @@ class DataTable extends Component {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
       console.log("this.props.listid : " + this.props.listid)
-      fetch('http://localhost:3000/posts/' + this.props.listid, {
+      fetch('http://localhost:3002/posts/' + this.props.listid, {
       method: 'delete',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

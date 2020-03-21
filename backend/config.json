@@ -3,5 +3,5 @@
   "PGUSER": "postgres",
   "PGPASSWORD": "docker",
   "PGDATABASE": "postgres",
-  "PGPORT": 5432
+  "PGPORT": 5433
 }

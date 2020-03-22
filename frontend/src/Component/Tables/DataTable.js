@@ -3,12 +3,18 @@ import { Table, Button } from 'reactstrap';
 import ModalForm from '../Modals/Modal'
 
 class DataTable extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      listid: this.props.listid
+    }
+  }
 
   deleteItem = id => {
     let confirmDelete = window.confirm('Delete item forever?')
     if(confirmDelete){
-      console.log("this.props.listid : " + this.props.listid)
-      fetch('http://localhost:3002/posts/' + this.props.listid, {
+      console.log("delete this.state.listid : " + this.state.listid)
+      fetch('http://localhost:3002/posts/' + this.state.listid, {
       method: 'delete',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

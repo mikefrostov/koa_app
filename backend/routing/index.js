@@ -42,8 +42,8 @@ router.put('/posts/:listid', koaBody(), async ctx => {
         postid = JSON.stringify(ctx.request.body.postid);
 	post = JSON.parse(JSON.stringify(ctx.request.body.post));
 	var queryConfig = {
-            text: 'UPDATE posts SET body = $1 WHERE posts.listid = $3 AND posts.id = $2;',
-            values: [post, postid, listid]
+            text: 'UPDATE posts SET body = $1 WHERE posts.id = $2;',
+            values: [post, postid]
         };
         result1 = await database.query(queryConfig);
         result = await database.query('SELECT * FROM posts ORDER BY id;').then(c => c.rows);
@@ -56,8 +56,8 @@ router.del('/posts/:listid', koaBody({ strict: false }), async ctx => {
       listid = ctx.params.listid;
       postid = JSON.stringify(ctx.request.body.postid);
       var queryConfig = {
-      text: 'DELETE FROM posts WHERE posts.listid = $2 AND posts.id = $1;',
-      values: [postid, listid]
+      text: 'DELETE FROM posts WHERE posts.id = $1;',
+      values: [postid]
   };
         result1 = await database.query(queryConfig);
         result = await database.query('SELECT * FROM posts ORDER BY id;').then(c => c.rows);

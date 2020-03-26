@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     getItems(){
-	    fetch('http://localhost:3002/posts/' + this.props.match.params.id)
+	    fetch('http://192.168.1.7:3002/posts/' + this.props.match.params.id)
 		    .then(response => response.json())
 		    .then(items => this.setState({items}))
 		    .catch(err => console.log(err))

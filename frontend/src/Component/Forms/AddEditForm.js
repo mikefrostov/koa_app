@@ -14,7 +14,7 @@ class AddEditForm extends React.Component {
   submitFormAdd = e => {
     console.log("this.props.listid : " + this.props.listid)
     e.preventDefault()
-    fetch('http://localhost:3002/posts/' + this.props.listid, {
+    fetch('http://192.168.1.7:3002/posts/' + this.props.listid, {
       method: 'POST',
       mode: 'cors',
       headers: {

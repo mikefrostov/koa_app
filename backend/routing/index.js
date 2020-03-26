@@ -54,7 +54,7 @@ router.put('/posts/:listid', koaBody(), async ctx => {
 // delete post
 router.del('/posts/:listid', koaBody({ strict: false }), async ctx => {
       listid = ctx.params.listid;
-      postid = JSON.stringify(ctx.request.body.postid);
+      postid = JSON.stringify(ctx.request.body.id);
       var queryConfig = {
       text: 'DELETE FROM posts WHERE posts.id = $1;',
       values: [postid]

@@ -37,6 +37,7 @@ class AddEditForm extends React.Component {
   }
 
   submitFormEdit = e => {
+    console.log("this.props.listid : " + this.props.listid)
     e.preventDefault()
     fetch('http://localhost:3002/posts/' + this.props.listid , {
       method: 'PUT',
@@ -52,7 +53,7 @@ class AddEditForm extends React.Component {
       .then(item => {
         if(Array.isArray(item)) {
           for(var i in item) {
-          this.props.updateState(item[i])
+          this.props.updateState(item[0]) // 0 for debug 
 	  }
           this.props.toggle()
         } else {

@@ -39,8 +39,8 @@ router.post('/posts/:listid', koaBody(), async ctx => {
 // update post
 router.put('/posts/:listid', koaBody(), async ctx => {
         listid = ctx.params.listid;
-        postid = JSON.stringify(ctx.request.body.postid);
-	post = JSON.parse(JSON.stringify(ctx.request.body.post));
+        postid = JSON.stringify(ctx.request.body.id);
+        post = JSON.parse(JSON.stringify(ctx.request.body.post));
 	var queryConfig = {
             text: 'UPDATE posts SET body = $1 WHERE posts.id = $2;',
             values: [post, postid]

@@ -7,6 +7,7 @@ export default class Post extends Component {
     super(props);
     this.state = {
     posts:[],
+    listid:this.prop.match.params.listid
     };
     this.loadPosts = this.loadPosts.bind(this);
   }
@@ -17,12 +18,12 @@ export default class Post extends Component {
 
   async loadPosts()
   {
-    const promise = await axios.get("http://localhost:3000/manyposts");
+    const promise = await axios.get("http://morozovme.com:3002/posts/" + this.props.match.params.id);
     const status = promise.status;
     if(status===200)
     {
-	const data = promise.data;
-        this.setState({posts:data});
+      const data = promise.data;
+      this.setState({posts:data});
     }
   }
 

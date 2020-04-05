@@ -4,7 +4,9 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 class AddEditForm extends React.Component {
   state = {
     id: 0,
-    post: ''
+    post: '',
+    listid: this.props.listid, // <<< -------   fix ? 
+    itemIndex: this.props.itemIndex
   }
 
   onChange = e => {
@@ -12,9 +14,9 @@ class AddEditForm extends React.Component {
   }
 
   submitFormAdd = e => {
-    console.log("this.props.listid : " + this.props.listid)
+    console.log("this.state.listid : " + this.state.listid)    // <<< --- substitute props to state
     e.preventDefault()
-    fetch('http://192.168.1.7:3002/posts/' + this.props.listid, {
+    fetch('http://192.168.1.7:3002/posts/' + this.state.listid, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -37,9 +39,10 @@ class AddEditForm extends React.Component {
   }
 
   submitFormEdit = e => {
-    console.log("this.props.listid : " + this.props.listid)
+    //console.log("this.state.listid : " + this.state.listid) // <<< --- substitute props to state
+    //console.log("this.state.id : " + this.state.id)
     e.preventDefault()
-    fetch('http://localhost:3002/posts/' + this.props.listid , {
+    fetch('http://192.168.1.7:3002/posts/' + this.state.listid , {
       method: 'PUT',
       mode: 'cors',
       cache: 'default',
@@ -51,12 +54,22 @@ class AddEditForm extends React.Component {
     })
       .then(response => response.json())
       .then(item => {
-        if(Array.isArray(item)) {
-          for(var i in item) {
-          this.props.updateState(item[0]) // 0 for debug 
-	  }
+
+
+/*        this.props.updateState(item[this.state.id])
+        this.props.toggle()*/
+       if(Array.isArray(item)) {
+        for (var propName in item ){
+          const propValue = item[propName]
+          console.log("[addeditform] item propname-value : " + propName,propValue);
+        }
+          const index = item.findIndex(data => data.id === this.state.id)
+          console.log("index : "+ index)
+          this.props.updateState(item[index])
+	        //}
           this.props.toggle()
-        } else {
+        } 
+        else {
           console.log('item = ' + JSON.stringify(item[0]));
         }
       })
@@ -76,7 +89,7 @@ class AddEditForm extends React.Component {
       <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd}>
         <FormGroup>
           <Label for="post">Post</Label>
-          <Input type="text" name="post" id="post" onChange={this.onChange} value={this.state.post === null ? '' : this.state.post} />
+          <Input type="text" name="post" id="post" onChange={this.onChange} value={this.state.post === null ? '' : this.state.post} listid={this.state.listid}/>
         </FormGroup>
         <Button>Submit</Button>
       </Form>

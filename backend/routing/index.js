@@ -45,8 +45,14 @@ router.put('/posts/:listid', koaBody(), async ctx => {
             text: 'UPDATE posts SET body = $1 WHERE posts.id = $2;',
             values: [post, postid]
         };
+
+        var returnListPosts = {
+                text: 'SELECT * FROM posts WHERE posts.listid = $1 ORDER BY id;',
+                values: [listid]
+            };
+
         result1 = await database.query(queryConfig);
-        result = await database.query('SELECT * FROM posts ORDER BY id;').then(c => c.rows);
+        result = await database.query(returnListPosts).then(c => c.rows);
         ctx.status = 200;
         ctx.body = result;
 });

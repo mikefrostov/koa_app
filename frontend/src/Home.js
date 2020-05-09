@@ -6,22 +6,16 @@ import Placeholder from './Placeholder';
 class Home extends Component {
     render(){
 		return (
-			<Container className="Home">
-			<Row>
-			<Col>
-			<h1 style ={{margin: "20px 0"}}> Welcome</h1>
-			</Col>
-			</Row>
-            <Row>
-                <Col>
-                <Placeholder />
-                </Col>
-            </Row>
-            </Container>
+    <React.Fragment>
+    <button onClick={this.props.getNext} className='nextBtn'
+      type='button'>Next</button>
+    </React.Fragment>
     )
   }
+  
+});
 
 
-}
+//}
 
 export default Home;

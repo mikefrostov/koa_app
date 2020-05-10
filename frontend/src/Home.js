@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap'
 import Placeholder from './Placeholder';
+import { Button } from 'react-bootstrap';
 // Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 
@@ -76,7 +77,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleButtonState}> Click me </button>
+        <button variant="outline-dark" onClick={this.toggleButtonState}> Click me </button>
         <div>{this.state.result}</div>
       </div>
     );

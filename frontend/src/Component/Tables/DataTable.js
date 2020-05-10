@@ -39,7 +39,7 @@ class DataTable extends Component {
           <th scope="row">{item.id}</th>
           <td>{item.body}</td>
           <td>
-            <div style={{width:"110px"}}>
+            <div xs lg="2">
               <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} listid={this.props.listid} itemIndex={this.props.itemIndex}/>
               {' '}
               <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
@@ -54,7 +54,7 @@ class DataTable extends Component {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Post</th>
+            <th>Task</th>
           </tr>
         </thead>
         <tbody>

@@ -17,7 +17,7 @@ ReactDOM.render(
       <Route path="/:id" component={ App } />
     </Switch>
   </Router>
-
+  
 
 , document.getElementById('root'));
 console.log(useParams());

@@ -36,9 +36,9 @@ class DataTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr key={item.id}>
-          <th scope="row">{item.id}</th>
-          <td style={{ width: '60%' }}>{item.body}</td>
-          <td>
+          <th style={{ width: '40px' }} scope="row">{item.id}</th>
+          <td>{item.body}</td>
+          <td style={{ width: '150px' }}>
             <div>
               <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} listid={this.props.listid} itemIndex={this.props.itemIndex}/>
               {' '}

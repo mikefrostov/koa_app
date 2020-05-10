@@ -5,10 +5,7 @@ import Placeholder from './Placeholder';
 import { Button } from 'react-bootstrap';
 
 
-function fetchAPI(param) {
-        var listid = "default"
-	listid = Math.random().toString(36).replace(/[^a-z]+/g, '') + Math.random().toString(36).substring(2, 36);
-	console.log("generated listid = " + listid) 
+function fetchAPI(listid) {
       return fetch('http://192.168.1.7:3002/lists/' + listid, {
       method: 'POST',
       mode: 'cors',
@@ -18,12 +15,8 @@ function fetchAPI(param) {
     })
       .then(response => response.json())
       .then(item => {
-        if(Array.isArray(item)) {
-         this.props.addItemToState(item[0])
-         this.props.toggle()
-        } else {
-          console.log('failure')
-        }
+        console.log('listid = ' + listid)
+        console.log('item = ' + item) 
       })
       .catch(err => console.log(err))
   }
@@ -31,18 +24,22 @@ function fetchAPI(param) {
 
 
 class Home extends Component {
-  state = { result : null };  
+  state = { result : null, listid: 'default' };  
   toggleButtonState = () => {
-    let selectedWord = window.getSelection().toString();
-    fetchAPI(selectedWord).then(result => {
+    this.state.listid = Math.random().toString(36).replace(/[^a-z]+/g, '') + Math.random().toString(36).substring(2, 36);
+    console.log("generated this.state.listid = " + this.state.listid)
+    fetchAPI(this.state.listid).then(result => {
       this.setState({ result });
     });
   };
+//   render() {
+//   return ( <div> <Button className="btn"  onClick={()=> { this.toggleButtonState }}>Click Me!</Button> <h2>{ this.state.listid  }</h2> </div> );
+//   }
 
   render() {
     return (
       <div>
-        <button variant="outline-dark" onClick={this.toggleButtonState}> Click me </button>
+        <button className="btn" onClick={this.toggleButtonState}> Create list </button>
         <div>{this.state.result}</div>
       </div>
     );

@@ -37,9 +37,9 @@ class DataTable extends Component {
       return (
         <tr key={item.id}>
           <th scope="row">{item.id}</th>
-          <td>{item.body}</td>
+          <td style={{ width: '60%' }}>{item.body}</td>
           <td>
-            <div xs lg="2">
+            <div>
               <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} listid={this.props.listid} itemIndex={this.props.itemIndex}/>
               {' '}
               <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>

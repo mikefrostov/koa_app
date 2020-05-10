@@ -61,13 +61,13 @@ class App extends Component {
 	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
-			<Container fluid="lg" className="App">
+			<Container fluid style={{ marginBottom: "5%", marginLeft: "2%" }} className="App">
 			<Row className="justify-content-md-center">
 			  <Col md="auto">
-			    <h1 style ={{margin: "20px 0"}}> Tasks </h1>
+			    <h1 style={{margin: "20px 0"}}> Tasks </h1>
 			  </Col>
 			</Row>
-			<Row className="justify-content-md-center">
+			<Row>
 			  <Col>
 			    <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
                             <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />

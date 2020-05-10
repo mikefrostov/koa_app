@@ -25,12 +25,9 @@ function fetchAPI(listid) {
 
 class Home extends Component {
   state = { result : null, listid: 'default' };  
-  toggleButtonState = () => {
-    this.state.listid = Math.random().toString(36).replace(/[^a-z]+/g, '') + Math.random().toString(36).substring(2, 36);
-    console.log("generated this.state.listid = " + this.state.listid)
-    fetchAPI(this.state.listid).then(result => {
-      this.setState({ result });
-    });
+  toggleButtonState = () => { 
+    this.setState({ listid: Math.random().toString(36).replace(/[^a-z]+/g, '') + Math.random().toString(36).substring(2, 36) }, () =>
+    fetchAPI(this.state.listid));
   };
 //   render() {
 //   return ( <div> <Button className="btn"  onClick={()=> { this.toggleButtonState }}>Click Me!</Button> <h2>{ this.state.listid  }</h2> </div> );
@@ -40,7 +37,7 @@ class Home extends Component {
     return (
       <div>
         <button className="btn" onClick={this.toggleButtonState}> Create list </button>
-        <div>{this.state.result}</div>
+        <div>{this.state.listid}</div>
       </div>
     );
   }

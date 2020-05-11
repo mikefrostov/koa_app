@@ -62,7 +62,7 @@ class App extends Component {
 	const listidval = this.props.match.params.id;
 		return (
 			<Container fluid style={{ width: '90%', marginBottom: "5%", marginLeft: "2%" }} className="App">
-			<Row className="justify-content-md-center">
+			<Row>
 			  <Col md="auto">
 			    <h1 style={{margin: "20px 0"}}> Tasks </h1>
 			  </Col>

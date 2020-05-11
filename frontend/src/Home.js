@@ -35,10 +35,29 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <button className="btn" onClick={this.toggleButtonState}> Create list </button>
-        <div>{this.state.listid}</div>
+      <body class="text-center">
+      <div class="cover-container d-flex w-50 h-50 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+          <div class="inner">
+	    <h1 class="cover-heading">Simple task lists</h1>
+          </div>
+        </header>
+
+        <main role="main" class="inner cover">
+	  <h3 class="masthead-brand"> 1. Press button to generate a list ID</h3>
+	  <h3 class="masthead-brand"> 2. Put ID after slash '/' and use the list </h3>
+	  <h3 class="masthead-brand"> 3. Save the ID to access the list later. </h3>
+          <p class="lead"> Task lists are preserved, so you can access it later using any device that has an internet browser.</p>
+          <p class="lead">
+            <div>
+              <button class="btn btn-lg btn-secondary" onClick={this.toggleButtonState}>Generate</button>
+
+	    <div>{this.state.listid}</div>
+            </div>
+	  </p>
+          </main>
       </div>
+      </body>
     );
   }
 

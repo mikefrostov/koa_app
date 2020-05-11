@@ -24,7 +24,7 @@ function fetchAPI(listid) {
 
 
 class Home extends Component {
-  state = { result : null, listid: 'default' };  
+  state = { result : null, listid: '' };  
   toggleButtonState = () => { 
     this.setState({ listid: Math.random().toString(36).replace(/[^a-z]+/g, '') + Math.random().toString(36).substring(2, 36) }, () =>
     fetchAPI(this.state.listid));

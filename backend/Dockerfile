@@ -3,4 +3,4 @@ WORKDIR /usr/src/app
 COPY . .
 CMD ["npm", "install"]
 CMD ["npm", "start"]
-EXPOSE 3002
+EXPOSE 4002

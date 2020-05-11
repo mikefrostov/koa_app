@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 
 
 function fetchAPI(listid) {
-      return fetch('http://192.168.1.7:3002/lists/' + listid, {
+      return fetch('http://morozovme.com:4002/lists/' + listid, {
       method: 'POST',
       mode: 'cors',
       headers: {

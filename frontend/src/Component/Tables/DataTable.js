@@ -15,7 +15,7 @@ class DataTable extends Component {
     if(confirmDelete){
       console.log("delete this.state.listid : " + this.state.listid)
       console.log("id var : " + id)
-      fetch('http://192.168.1.7:3002/posts/' + this.state.listid, {
+      fetch('http://morozovme.com:4002/posts/' + this.state.listid, {
       method: 'delete',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

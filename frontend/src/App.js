@@ -7,6 +7,7 @@ import Post from "./Component/Post/index";
 import { Container, Row, Col } from 'reactstrap'
 import ModalForm from './Component/Modals/Modal.js'
 import DataTable from './Component/Tables/DataTable.js'
+import Footer from './Footer'
 
 class App extends Component {
     state = {
@@ -15,7 +16,7 @@ class App extends Component {
 
     getItems(){
 		console.log(" get items this.props.match.params.id : " + this.props.match.params.id)
-	    fetch('http://morozovme.com:3002/posts/' + this.props.match.params.id)
+	    fetch('http://morozovme.com:4002/posts/' + this.props.match.params.id)
 		    .then(response => response.json())
 		    .then(items => this.setState({items}))
 			.catch(err => console.log(err));
@@ -46,37 +47,6 @@ class App extends Component {
 		this.setState({ items: newArray }) 
 	}
 
-/*	updateState = (item) => {
-		const itemIndex = this.state.items.findIndex(data => data.id === item.id)
-		
-        console.log("[appjs] itemIndex =  " + itemIndex);
-
-		for (var propName in this.state.items ){
-			const propValue = this.state.items[propName]
-			console.log("[appjs] this.state.items: " + propName,propValue);
-		}
-
-		for (var propName in item ){
-			const propValue = item[propName]
-			console.log("[appjs] item: " + propName,propValue);
-		}
-
-		const newArray = this.state.items.slice(0, itemIndex) 
-
-		for (var propName in newArray ){
-			const propValue = newArray2[propName]
-			console.log("[appjs] newArray2: " + propName,propValue);
-		}
-		
-		const newArray2 = this.state.items.slice(itemIndex + 1)
-
-		for (var propName in newArray2 ){
-			const propValue = newArray2[propName]
-			console.log("[appjs] newArray2: " + propName,propValue);
-		}
-
-	}
-*/
 	deleteItemFromState = (id) => {
 		const updatedItems = this.state.items.filter(item => item.id !== id) 
 		this.setState({ items: updatedItems }) 
@@ -91,17 +61,17 @@ class App extends Component {
 	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
-			<Container className="App">
+			<Container fluid style={{ width: '90%', marginBottom: "5%", marginLeft: "2%" }} className="App">
 			<Row>
-			<Col>
-			<h1 style ={{margin: "20px 0"}}> Posts </h1>
-			</Col>
+			  <Col md="auto">
+			    <h1 style={{margin: "20px 0"}}> Tasks </h1>
+			  </Col>
 			</Row>
-			<Row>
-			<Col>
-			<DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
-                        <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />
-  		        </Col>
+			<Row className="justify-content-md-center">
+			  <Col>
+			    <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
+                            <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />
+  		          </Col>
                         </Row>
                         </Container>
     )

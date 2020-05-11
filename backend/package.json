@@ -15,7 +15,6 @@
     "Koa",
     "PostgreSQL"
   ],
-  "author": "Elliott Minns <elliott.minns@me.com>",
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^2.2.3",

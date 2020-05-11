@@ -6,6 +6,7 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "react": "^16.10.2",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.10.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "0.9.5",
@@ -13,10 +14,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
+    "start": "PORT=4001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://morozovme.com:3002"
+  "proxy": "http://morozovme.com:4002"
 }

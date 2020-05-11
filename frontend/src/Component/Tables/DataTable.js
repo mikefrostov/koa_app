@@ -15,7 +15,7 @@ class DataTable extends Component {
     if(confirmDelete){
       console.log("delete this.state.listid : " + this.state.listid)
       console.log("id var : " + id)
-      fetch('http://morozovme.com:3002/posts/' + this.state.listid, {
+      fetch('http://morozovme.com:4002/posts/' + this.state.listid, {
       method: 'delete',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -36,10 +36,10 @@ class DataTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr key={item.id}>
-          <th scope="row">{item.id}</th>
+          <th style={{ width: '40px' }} scope="row">{item.id}</th>
           <td>{item.body}</td>
-          <td>
-            <div style={{width:"110px"}}>
+          <td style={{ width: '150px' }}>
+            <div>
               <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} listid={this.props.listid} itemIndex={this.props.itemIndex}/>
               {' '}
               <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
@@ -54,7 +54,7 @@ class DataTable extends Component {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Post</th>
+            <th>Task</th>
           </tr>
         </thead>
         <tbody>

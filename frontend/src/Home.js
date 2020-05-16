@@ -70,7 +70,7 @@ class Home extends Component {
     
 <button class="btn btn-lg btn-secondary" onClick={this.toggleButtonState}>Generate</button>
 
-<div style={{padding: "15px", fontSize: "25px",color: "green"}}><a href = "http://192.168.1.7:4001/{this.state.listid}">{this.state.listid} </a> </div>
+<div style={{padding: "15px", fontSize: "25px",color: "green"}}><a href={'http://192.168.1.7:4001/' + this.state.listid}> {this.state.listid} </a> </div>
 
 </body>
     );

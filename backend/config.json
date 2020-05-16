@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "PGHOST": "192.168.1.7",
+=======
+  "PGHOST": "192.168.1.88",
+>>>>>>> 9b12f8d2c7282d12f20fdd0c5e430f2b95fb95e6
   "PGUSER": "postgres",
   "PGPASSWORD": "docker",
   "PGDATABASE": "postgres",

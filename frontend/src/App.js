@@ -16,7 +16,7 @@ class App extends Component {
 
     getItems(){
 		console.log(" get items this.props.match.params.id : " + this.props.match.params.id)
-	    fetch('http://192.168.1.7:4002/posts/' + this.props.match.params.id)
+	    fetch('http://morozovme.com:4002/posts/' + this.props.match.params.id)
 		    .then(response => response.json())
 		    .then(items => this.setState({items}))
 			.catch(err => console.log(err));
@@ -61,14 +61,14 @@ class App extends Component {
 	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
-			<Container fluid style={{ width: '90%', marginBottom: "5%", marginLeft: "2%" }} className="App">
-			<Row>
-			  <Col md="auto">
-			    <h1 style={{margin: "20px 0"}}> Tasks </h1>
+			<Container style={{ width:'90%', background: '#000fff', marginBottom: "5%", marginLeft: "2%"}}>
+			<Row style={{ background: '#666666'}}>
+			  <Col>
+			    <h1 style={{margin: "20px 0"}}> Tasks </h1>	
 			  </Col>
 			</Row>
-			<Row className="justify-content-md-center">
-			  <Col>
+			<Row style={{background: '#88A09E',  }}>
+			  <Col  className = "justify-content-md-center" style={{background: '#704C5E'}}>
 			    <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
                             <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />
   		          </Col>
@@ -76,7 +76,7 @@ class App extends Component {
                         </Container>
     )
   }
-
+// className="justify-content-md-center"
 
 }
 

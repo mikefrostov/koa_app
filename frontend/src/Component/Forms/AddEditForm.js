@@ -14,7 +14,7 @@ class AddEditForm extends React.Component {
   }
 
   submitFormAdd = e => {
-    fetch('http://192.168.1.7:4002/posts/' + this.state.listid, {
+    fetch('http://morozovme.com:4002/posts/' + this.state.listid, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -40,7 +40,7 @@ class AddEditForm extends React.Component {
     //console.log("this.state.listid : " + this.state.listid) // <<< --- substitute props to state
     //console.log("this.state.id : " + this.state.id)
     e.preventDefault()
-    fetch('http://192.168.1.7:4002/posts/' + this.state.listid , {
+    fetch('http://morozovme.com:4002/posts/' + this.state.listid , {
       method: 'PUT',
       mode: 'cors',
       cache: 'default',

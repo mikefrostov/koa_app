@@ -61,14 +61,14 @@ class App extends Component {
 	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
-			<Container style={{ width:'90%', background: '#000fff', marginBottom: "5%", marginLeft: "2%"}}>
-			<Row style={{ background: '#666666'}}>
+			<Container>
+			<Row>
 			  <Col>
 			    <h1 style={{margin: "20px 0"}}> Tasks </h1>	
 			  </Col>
 			</Row>
-			<Row style={{background: '#88A09E',  }}>
-			  <Col  className = "justify-content-md-center" style={{background: '#704C5E'}}>
+			<Row>
+			  <Col>
 			    <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
                             <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />
   		          </Col>

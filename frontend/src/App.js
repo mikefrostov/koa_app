@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 // import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Post from "./Component/Post/index";
 import { Container, Row, Col } from 'reactstrap'
 import ModalForm from './Component/Modals/Modal.js'
 import DataTable from './Component/Tables/DataTable.js'
-import Footer from './Footer'
 
 class App extends Component {
     state = {
@@ -15,7 +12,6 @@ class App extends Component {
     }
 
     getItems(){
-		console.log(" get items this.props.match.params.id : " + this.props.match.params.id)
 	    fetch('http://morozovme.com:4002/posts/' + this.props.match.params.id)
 		    .then(response => response.json())
 		    .then(items => this.setState({items}))
@@ -42,7 +38,6 @@ class App extends Component {
 	]
 	    for (var propName in newArray ){
 		const propValue = newArray[propName]
-		console.log("[appjs] newArray: " + propName,propValue);
 	    }
 		this.setState({ items: newArray }) 
 	}
@@ -54,11 +49,9 @@ class App extends Component {
 
 	componentDidMount(){
     this.getItems();
-    console.log("params: " + this.props.match.params.id);
 	}
 
 	render(){
-	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
 			<Container>

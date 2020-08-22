@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap'
-import Placeholder from './Placeholder';
-import { Button } from 'react-bootstrap';
 
 
 function fetchAPI(listid) {

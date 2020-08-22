@@ -19,5 +19,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://morozovme.com:4002"
+  "proxy": "http://koareact4.morozovme.com:4001"
 }

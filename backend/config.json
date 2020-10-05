@@ -1,5 +1,5 @@
 {
-  "PGHOST": "192.168.1.88",
+  "PGHOST": "192.168.1.175",
   "PGUSER": "postgres",
   "PGPASSWORD": "docker",
   "PGDATABASE": "postgres",

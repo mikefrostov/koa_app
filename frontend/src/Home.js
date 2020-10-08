@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap'
-import Placeholder from './Placeholder';
-import { Button } from 'react-bootstrap';
 
 
 function fetchAPI(listid) {
@@ -35,8 +32,7 @@ class Home extends Component {
 
   render() {
     return (
-      <body class="text-center">
-      <div class="cover-container d-flex w-50 h-50 p-3 mx-auto flex-column">
+      /*<div class="cover-container d-flex w-50 h-50 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
           <div class="inner">
 	    <h1 class="cover-heading">Simple task lists</h1>
@@ -50,16 +46,33 @@ class Home extends Component {
           <p class="lead"> Task lists are preserved, so you can access it later using any device that has an internet browser.</p>
           <p class="lead">
             <div>
-              <button class="btn btn-lg btn-secondary" onClick={this.toggleButtonState}>Generate</button>
-
-	    <div>{this.state.listid}</div>
-            </div>
+               </div>
 	  </p>
           </main>
-      </div>
-      </body>
+      </div> */
+
+<body class="text-center">
+<div class="cover-container d-flex w-50 h-50 p-3 mx-auto flex-column">
+	    <h1 class="cover-heading">Simple task lists</h1>
+          </div>
+<div class="container-fluid">
+    <div class="row"> 
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p class="page-top1 col-md-12 col-sm-6">1. Press button to generate a list ID</p>
+            <p class="page-top2 col-md-12 col-sm-3">2. Put ID after slash</p>
+            <p class="page-top3 col-md-12 col-sm-3">3. Save the ID to access the list later</p>
+        </div>
+    </div>
+</div>
+    
+<button class="btn btn-lg btn-secondary" onClick={this.toggleButtonState}>Generate</button>
+
+<div style={{padding: "15px", fontSize: "25px",color: "green"}}><a href={'http://koareact4.morozovme.com/' + this.state.listid}> {this.state.listid} </a> </div>
+
+</body>
     );
   }
+
 
 
 

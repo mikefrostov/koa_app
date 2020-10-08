@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 // import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Post from "./Component/Post/index";
 import { Container, Row, Col } from 'reactstrap'
 import ModalForm from './Component/Modals/Modal.js'
 import DataTable from './Component/Tables/DataTable.js'
-import Footer from './Footer'
 
 class App extends Component {
     state = {
@@ -42,7 +39,6 @@ class App extends Component {
 	]
 	    for (var propName in newArray ){
 		const propValue = newArray[propName]
-		console.log("[appjs] newArray: " + propName,propValue);
 	    }
 		this.setState({ items: newArray }) 
 	}
@@ -54,20 +50,18 @@ class App extends Component {
 
 	componentDidMount(){
     this.getItems();
-    console.log("params: " + this.props.match.params.id);
 	}
 
 	render(){
-	console.log("listidval: " + listidval );
 	const listidval = this.props.match.params.id;
 		return (
-			<Container fluid style={{ width: '90%', marginBottom: "5%", marginLeft: "2%" }} className="App">
+			<Container>
 			<Row>
-			  <Col md="auto">
-			    <h1 style={{margin: "20px 0"}}> Tasks </h1>
+			  <Col>
+			    <h1 style={{margin: "20px 0"}}> Tasks </h1>	
 			  </Col>
 			</Row>
-			<Row className="justify-content-md-center">
+			<Row>
 			  <Col>
 			    <DataTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} listid={listidval}/>
                             <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState} listid={listidval} />
@@ -76,7 +70,7 @@ class App extends Component {
                         </Container>
     )
   }
-
+// className="justify-content-md-center"
 
 }
 

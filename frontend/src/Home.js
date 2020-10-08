@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function fetchAPI(listid) {
-      return fetch('http://morozovme.com:4002/lists/' + listid, {
+      return fetch('192.168.1.175:4002/lists/' + listid, {
       method: 'POST',
       mode: 'cors',
       headers: {

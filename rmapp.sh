@@ -16,6 +16,4 @@ sudo docker image rm $( sudo docker images -q --filter reference='front:1' )
 
 echo 'removing postgres ct'
 sudo docker stop $(sudo docker ps -q --filter ancestor=postgres )
-sudo docker rm $(sudo docker ps --all -q --filter ancestor=postgres )
-
 

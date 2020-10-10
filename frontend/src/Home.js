@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import fetch from 'cross-fetch';
+import 'babel-polyfill';
 
 function fetchAPI(listid) {
       return fetch('/lists/' + listid, {
